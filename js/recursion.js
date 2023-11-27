@@ -25,4 +25,31 @@ function fibsRec(n) {
   return [...array, array[n - 3] + array[n - 2]];
 }
 
-module.exports = { fibs, fibsRec };
+function mergeSort(array) {
+  if (array.length < 2) {
+    return array;
+  } else {
+    const half = Math.ceil(array.length / 2);
+    let leftHalf = mergeSort(array.slice(0, half));
+    let rightHalf = mergeSort(array.slice(half));
+
+    //sort two already sorted arrays
+    return merge(leftHalf, rightHalf);
+  }
+}
+
+function merge(left, right) {
+  let sortedArray = [];
+
+  while (left.length > 0 && right.length > 0) {
+    if (left[0] < right[0]) {
+      sortedArray.push(left.shift());
+    } else {
+      sortedArray.push(right.shift());
+    }
+  }
+
+  return [...sortedArray, ...left, ...right];
+}
+
+module.exports = { fibs, fibsRec, mergeSort };

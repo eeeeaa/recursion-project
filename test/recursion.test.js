@@ -24,3 +24,9 @@ test("verify recursive fibbonacci for two", () => {
 test("verify recursive fibbonacci for more than two", () => {
   expect(recursion.fibsRec(8)).toStrictEqual([0, 1, 1, 2, 3, 5, 8, 13]);
 });
+
+test("verify merge sort for more than two", () => {
+  expect(recursion.mergeSort([1, 3, 2, 7, 6, 4, 8, 5])).toStrictEqual([
+    1, 2, 3, 4, 5, 6, 7, 8,
+  ]);
+});
